@@ -22,10 +22,15 @@
 
         var myCat = new Animal("양이", 5, "black");     //Animal클래스로부터 얻어진 객체1
         myCat.family = "페르시안";      //속성 추가
-        myCat.toString = function(){
+        myCat.toString = function(){    //메소드 추가
             document.write("<br>"+this.name + ", " + this.age + ", " + this.color + ", " + this.family);
         }
         myCat.toString();
+        for(var key in myCat){
+            document.write("<br>"+key);
+        }
+        delete myCat.family;    //속성제거
+        
         var myDog = new Animal("멍이", 6, "whight");    //Animal클래스로부터 얻어진 객체2
         myCat.cry("야옹")
 
