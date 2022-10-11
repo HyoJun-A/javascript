@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- TODO 객체, 함수 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 04 - 객체 그리고 함수</title>
+    <script>
+        // 사용자 정의 객체
+        var man1 = {num:1, name:"안효준", style:"잘생김", jum:100}; //객체
+        document.write("번호 : " + man1.num + " 이름 : " + man1.name);
+
+        function Animal(name, age, color){  //Constructor(생성자)
+            this.name = name;
+            this.age = age;
+            this.color = color;
+            this.cry = function(sound){
+                document.write("<br>" + sound);
+            }
+        }
+
+        var myCat = new Animal("양이", 5, "black");     //Animal클래스로부터 얻어진 객체1
+        myCat.family = "페르시안";      //속성 추가
+        myCat.toString = function(){
+            document.write("<br>"+this.name + ", " + this.age + ", " + this.color + ", " + this.family);
+        }
+        myCat.toString();
+        var myDog = new Animal("멍이", 6, "whight");    //Animal클래스로부터 얻어진 객체2
+        myCat.cry("야옹")
+
+        // 사용자 정의 함수
+        function fnc1(){    //함수 선언 - 매개변수 X, 리턴 X
+            document.write("함수1 호출");
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
