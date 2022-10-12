@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 10 - BOM 객체</title>
+    
+</head>
+<body>
+    <!-- window, screen, location, history, navigator.... -->
+    <button id="btn1" onclick="opener1()">버튼1</button>
+    <select name="sel" id="sel" onchange="opener2()">
+        <option value="" selected>선택없음</option>
+        <option value="https://www.naver.com">네이버</option>
+        <option value="https://www.google.com">구글</option>
+        <option value="https://www.daum.net">다음</option>
+    </select>
+    <button id="btn2" onclick="opener3()">자바스크립트</button>
+    <button id="btn3" onclick="opener4()">다음</button>
+    <button id="btn4" onclick="opener5()">구글</button>
+    <button id="btn5" onclick="windowBack()">뒤로</button>
+    <button id="btn6" onclick="windowFront()">앞으로</button>
+    <button id="btn7" onclick="movingTwoStep()">2단계 이전</button>
+    <div class="wrap">
+        
+    </div>
+    <script>
+    document.write("<h2>Window 객체</h2>");
+    for(var key in window){
+        document.write("<br>"+ key + " : " + window[key]);
+    }
+    document.write("<hr>");
+    document.write("<h2>screen 객체</h2>");
+    for(var key in screen){
+        document.write("<br>"+ key + " : " + screen[key]);
+    }
+    document.write("<hr>");
+    document.write("<h2>location 객체</h2>");
+    for(var key in window){
+        document.write("<br>"+ key + " : " + location[key]);
+    }
+    document.write("<hr>");
+    document.write("<h2>history 객체</h2>");
+    for(var key in window){
+        document.write("<br>"+ key + " : " + history[key]);
+    }
+    document.write("<hr>");
+    document.write("<h2>navigator 객체</h2>");
+    for(var key in window){
+        document.write("<br>"+ key + " : " + navigator[key]);
+    }
+    var win1, win2, win3;
+    function opener1(){
+        var win1 = window.open("https://www.naver.com", "win1", "width=400, height=300, top=100, left=300  scrollbars=no menubar=no status=no toolbar=no location=no");
+    }
+    /* 
+    자바스크립트만으로 웹앱을 만들고자 할 경우
+    document.getElementById("btn1").addEventListener("click", function(){
+        opener1();
+    });
+    */
+
+    function opener2(){
+        win2 = window.open(sel.value, "win2", "width=400, height=300, top=100, left=300  scrollbars=no menubar=no status=no toolbar=no location=no"); 
+    }
+
+    function opener3(){
+        win3 = window.open("javascript11.html", "win2", "width=400, height=300, top=100, left=300  scrollbars=no menubar=no status=no toolbar=no location=no");//새창에
+    }
+    function opener4(){
+        location.replace("https://www.daum.net");
+    }
+    function opener5() {
+        location.assign("https://google.com");
+    }
+
+    function windowBack(){
+        history.back();
+    }
+
+    function windowFront(){
+        history.forward();
+    }
+
+    function movingTwoStep(){
+        history.go(-2); //2단계 이전 페이지로
+    }
+
+    
+    </script>
+</body>
+</html>

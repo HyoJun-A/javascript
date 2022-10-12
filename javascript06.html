@@ -1,0 +1,72 @@
+<!-- TODO 조건문 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 06 - 조건문</title>
+</head>
+<body>
+    <ul>
+        <li class="jumsu">80</li>
+        <li class="jumsu">90</li>
+        <li class="jumsu">75</li>
+        <li class="jumsu">85</li>
+        <li class="jumsu">100</li>
+    </ul>
+    <div id="tot"></div>
+    <div id="avg"></div>
+    <div id="pan"></div>
+    <div id="hak"></div>
+    <div id="remark"></div>
+    <div id="sisang"></div>
+    <script>
+        var arr = [];
+        var jum = document.getElementsByClassName("jumsu"); //jumsu의 값이 여러개 이기 때문에 자동으로 배열선언
+        var tot = 0;
+        var avg = 0.0;
+        var pan, hak, remark, sisang;
+        for(var i = 0; i < jum.length; i++){
+            tot += parseInt(jum[i].innerHTML);
+            arr[i] = jum[i];
+        }
+        var t = document.getElementById("tot");
+        t.innerHTML = "총점 : " + tot;
+        
+        avg = tot / jum.length;
+        var a = document.getElementById("avg");
+        a.innerHTML = "평균 : " + avg;
+
+        //pan : 모든 점수가 60점이상이고, 평균이 60점 이상이면, 합 아니면 불
+        var p = document.getElementById("pan");
+        if(arr[0]>=60 && arr[1]>=60 && arr[2]>=60 && arr[3]>=60 && arr[4]>=60 && avg >=60){
+            pan = "합격";
+        } else{
+            pan = "불합격"
+        }
+        p.innerHTML = "판정 : " + pan;
+
+        var h = document.getElementById("hak");
+        if(avg >= 90){
+            hak = "A";
+        } else if (avg >= 80){
+            hak = "B";
+        } else if (avg >= 70){
+            hak = "C";
+        } else if (avg >= 60){
+            hak = "D";
+        } else {
+            hak = "F";
+        }
+        h.innerHTML = "학점 : " + hak;
+
+        // var r = document.getElementById("remark");
+        // switch(hak){
+        //     case "A":
+        //         remark = ""
+        // }
+
+    </script>
+</body>
+</html>
